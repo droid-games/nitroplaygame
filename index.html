@@ -213,21 +213,44 @@
   }
   .gp-btn:hover { background: #016c4c; transform: translateY(-2px); }
 
-  /* ── PRIVACY ── */
+
+  /* ── LEGAL CARDS ── */
   #privacy { background: var(--dark2); }
   #privacy .wrap { text-align: center; }
-  #privacy .privacy-box { text-align: left; }
-  .privacy-box {
-    background: var(--dark3); border: 1px solid #2a2a2a;
-    border-radius: 12px; padding: 48px;
-    margin-top: 32px; max-width: 800px;
-    margin-left: auto; margin-right: auto;
+  .legal-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    text-align: left;
+    margin-top: 8px;
+    width: 100%;
   }
-  .privacy-box h3 { font-size: 17px; margin-top: 28px; margin-bottom: 8px; color: var(--red); text-transform: none; }
-  .privacy-box p, .privacy-box li { font-size: 14px; color: #999; line-height: 1.8; }
-  .privacy-box ul { padding-left: 20px; margin-bottom: 12px; }
-  .privacy-box li { margin-bottom: 4px; }
-  .updated { font-size: 13px; color: #555; margin-bottom: 24px; }
+  .legal-card {
+    background: var(--dark3);
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 32px 28px;
+    display: flex; flex-direction: column;
+    min-width: 0;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .legal-card:hover { border-color: var(--red); transform: translateY(-4px); }
+  .legal-icon { font-size: 32px; margin-bottom: 16px; }
+  .legal-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px; font-weight: 700;
+    text-transform: uppercase; margin-bottom: 10px; color: var(--white);
+  }
+  .legal-card > p { font-size: 14px; color: #777; margin-bottom: 16px; }
+  .legal-card ul { padding-left: 18px; margin-bottom: 24px; flex: 1; list-style: disc; }
+  .legal-card li { font-size: 13px; color: #666; line-height: 1.8; margin-bottom: 2px; text-align: left; }
+  .legal-btn {
+    display: inline-flex; align-items: center;
+    color: var(--red); font-size: 13px; font-weight: 500;
+    text-decoration: none; margin-top: auto;
+    transition: letter-spacing 0.2s;
+  }
+  .legal-btn:hover { letter-spacing: 0.02em; }
 
   /* ── CONTACT ── */
   #contact { background: var(--dark); }
@@ -285,6 +308,9 @@
   @media (max-width: 900px) {
     .games-grid { grid-template-columns: repeat(2, 1fr); }
     .about-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 700px) {
+    .legal-cards { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
     .wrap { padding: 0 20px; }
